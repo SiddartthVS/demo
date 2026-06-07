@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisk & Crumb | Artisan Home Bakery</title>
+    
+    <!-- Google Fonts: Playfair Display for headings, Lora for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #FAF8F5; /* Warm cream */
+            --text-dark: #3A3530; /* Charcoal/Dark Brown */
+            --text-light: #6B635A;
+            --accent-color: #C88D66; /* Warm terracotta/caramel */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            padding: 2rem 0;
+            background-color: var(--bg-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 70vh;
+            padding: 4rem 0;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #B07A55;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        .hero-image img {
+            border-radius: 4px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            object-fit: cover;
+            aspect-ratio: 4/5;
+            width: 100%;
+        }
+
+        /* --- FAVORITES/MENU SECTION --- */
+        .menu-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .menu-item {
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 50%; /* Elegant circular images */
+            margin-bottom: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .menu-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER / CONTACT --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-content p {
+            color: #AFA8A1;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #7A736D;
+            border-top: 1px solid #4A443F;
+            padding-top: 2rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+                margin: 0 auto 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Whisk & Crumb</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Order</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container" id="about">
+        <div class="hero-text">
+            <h1>Handcrafted baking, made with love.</h1>
+            <p>Small-batch artisan bread, delicate pastries, and custom cakes baked fresh from my home oven to your table. Made with locally sourced, organic ingredients.</p>
+            <a href="#contact" class="btn">Place an Order</a>
+        </div>
+        <div class="hero-image">
+            <!-- Using a high-quality placeholder image of rustic bread -->
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Freshly baked artisan bread">
+        </div>
+    </section>
+
+    <!-- Menu/Favorites Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Favorites</h2>
+                <p>A peek at what's cooling on the counter today.</p>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sourdough Loaf">
+                    <h3>Classic Sourdough</h3>
+                    <p>Naturally leavened with a crispy crust and an open, chewy crumb. Fermented for 48 hours.</p>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Custom Cakes">
+                    <h3>Celebration Cakes</h3>
+                    <p>Elegant, bespoke cakes featuring Swiss meringue buttercream and seasonal edible flowers.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f40ce88f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Morning Pastries">
+                    <h3>Morning Pastries</h3>
+                    <p>Flaky croissants, fruit-filled danishes, and rich cinnamon knots baked fresh every weekend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2>Let's bake something special.</h2>
+            <p>I bake to order. Reach out to request a menu, place a custom order, or ask a question.</p>
+            
+            <div class="contact-info">
+                <p>Email: <a href="mailto:hello@whiskandcrumb.com">hello@whiskandcrumb.com</a></p>
+                <p>Instagram: <a href="#">@whiskandcrumb</a></p>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Whisk & Crumb Home Bakery. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
